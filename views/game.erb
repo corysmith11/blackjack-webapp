@@ -8,6 +8,14 @@
     <%= card_image(card) %>
   <% end %>
 
+<% if @show_dealer_hit_button %>
+  <p>
+      <h5>Dealer has <%= calc_total(session[:dealer_cards])%> and will hit again</h5>
+  <form action='/game/dealer/hit' method='post'>
+    <input type='submit' class='btn btn-primary' value='Click to See Dealer Card &rarr;'>
+     </form>
+    </p>
+  <% end %>
 </div>
 
 </br>

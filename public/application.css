@@ -10,3 +10,8 @@ form#stay_form {
 img.card_image {
   margin: 0px 7px 7px 0px;
 }
+
+form#welcome_form {
+  color: red;
+  background-color: #00FFFF;
+  margin: 0px 0px 0px 0px;

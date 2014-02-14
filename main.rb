@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'sinatra'
-require 'sinatra/reloader'
 
 set :sessions, true
 
@@ -10,7 +9,7 @@ helpers do
 
     total = 0
     face_values.each do |val|
-      if val == "Ace"
+      if val == "A"
         total += 11
       else
         total += val.to_i == 0 ? 10 : val.to_i
@@ -109,6 +108,46 @@ end
 post '/game/player/stay' do
 @success = "#{session[:name]} has chosen to stay."
 @show_hit_or_stay_buttons = false
+redirect '/game/dealer'
+end
+
+get '/game/dealer' do
+  @show_hit_or_stay_buttons = false
+
+  dealer_total = calc_total(session[:dealer_cards])
+  
+  if dealer_total == 21
+    @error = "Sorry, Dealer Hit Blackjack!"
+  elsif dealer_total > 21
+    @success = "Congrats, Dealer Busted. You Win!"
+  elsif dealer_total >= 17
+
+    redirect '/game/compare'
+  else
+    @show_dealer_hit_button = true
+  end
+  
   erb :game
 end
 
+post '/game/dealer/hit' do
+  session[:dealer_cards] << session[:deck].pop
+  redirect '/game/dealer'
+end
+
+get '/game/compare' do
+  @show_hit_or_stay_buttons = false
+
+  player_total = calc_total(session[:player_cards])
+  dealer_total = calc_total(session[:dealer_cards])
+
+  if player_total < dealer_total
+    @error = "Sorry you lost!"
+  elsif player_total > dealer_total
+    @success = "Congrats, you won!!"
+  else
+    @success = "It's a Tie.."
+  end
+
+  erb :game
+end
