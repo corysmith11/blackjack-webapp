@@ -19,23 +19,10 @@ $(document).on("click", "form#hit_form input", function() {
 
 function player_stays() {
 $(document).on("click", "form#stay_form input", function() {
-    alert("player Stays!");
+    alert("Player Stays!");
     $.ajax({
       type: "POST",
       url: "/game/player/stay"
-    }).done(function(msg) {
-      $("div#game").replaceWith(msg)
-    });
-    return false;
-  });
-}
-
-function dealer_hit() {
-$(document).on("click", "form#dealer_hit input", function() {
-    alert("Dealer Hits!");
-    $.ajax({
-      type: "POST",
-      url: "/game/dealer/hit"
     }).done(function(msg) {
       $("div#game").replaceWith(msg)
     });
