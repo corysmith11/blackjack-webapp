@@ -124,7 +124,7 @@ get '/game' do
 
   #create a deck and put it in session
   suits =  ['H','D','C','S']
-  cards =   ['2','3','4','5','6','7','8','9','10','Jack','queen','king','ace']
+  cards =   ['2','3','4','5','6','7','8','9','10','jack','queen','king','ace']
   session[:deck] = suits.product(cards).shuffle!
 
   session[:dealer_cards] = []
