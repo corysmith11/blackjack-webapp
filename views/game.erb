@@ -34,7 +34,19 @@
       </p>
     <% end %>
   </div>
-
+  <p>
+  What would you like to do?
+  </br>
+  <%= session[:name] %> has <%= calc_total(session[:player_cards]) %>
+<% if @show_hit_or_stay_buttons %>
+  <form id="hit_form" action='/game/player/hit' method='post'>
+    <input type="submit" class="btn btn-primary" value="Hit">
+  </form>
+  <form id="stay_form" action='/game/player/stay' method="post">
+    <input type="submit" class="btn btn-success" value="Stay">
+  </form>
+  <% end %>
+  <br>
   </br>
   <div class="well" id="player_cards">
   <h4><%= session[:name] %>'s Cards:</h4>
@@ -44,26 +56,11 @@
     <% end %>
 
   <h4>
-      <%= session[:name] %> has a total of $<%= session[:player_pot] %> and a Bet this round of
-       $<%= session[:player_bet] %>!
+      <%= session[:name] %> has a total of $<%= session[:player_pot] %> and is betting
+       $<%= session[:player_bet] %> this round!
 
   </h4>
-
   </div>
-  </br>
-
-  <p>
-  What would you like to do?
-  </br>
-  <%= session[:name] %> has <%= calc_total(session[:player_cards]) %>
-
-  <% if @show_hit_or_stay_buttons %>
-  <form id="hit_form" action='/game/player/hit' method='post'>
-    <input type="submit" class="btn btn-primary" value="Hit">
-  </form>
-  <form id="stay_form" action='/game/player/stay' method="post">
-    <input type="submit" class="btn btn-success" value="Stay">
-  </form>
-  <% end %>
-  </p>
+  </br>  
+    </p>
 </div>
