@@ -1,8 +1,25 @@
+<style>
+p
+{
+position:absolute;
+left:573px;
+top:200px;
+}
+h2
+{
+position:absolute;
+left:485px;
+top:60px;
+}
+
+</style>
 <h2>Make a bet for this round.</h2>
+<img src='/images/cards/stack.png' 'div id="stack">
 <p><%= session[:name] %> has $<%= session[:player_pot].to_i %></p>
- <form action='/bet' method='post'>
+  <form id="bet_form" form action='/bet' method='post'>
   <input type='text' name="bet_amount"/>
   <br/>
   <input type="submit" value="Make a bet" class="btn btn-primary"/>
+  <class="bet_form"/>
  
 </form>

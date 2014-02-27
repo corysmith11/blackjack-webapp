@@ -13,7 +13,7 @@ img.card_image {
 
 form#welcome_form {
   color: red;
-  background-color: #00FFFF;
+  background-color: #E4AC89;
   margin: 0px 0px 0px 0px;
   border-style: solid;
   border-color: #000000;
@@ -38,4 +38,14 @@ form#welcome_form {
 position:absolute;
 left:710px;
 top:60px;
+}
+
+.nav {
+
+}
+
+form#bet_form {
+  position:absolute;
+  left: 579px;
+  top: 125px
 }
