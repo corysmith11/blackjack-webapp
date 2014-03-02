@@ -33,7 +33,11 @@ form#welcome_form {
     background-color: #29A329;
 
   }
+  #dealer_cards {
+   background-color: #29A329;
+}
 
+  }
 #bj_logo {
 position:absolute;
 left:710px;

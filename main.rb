@@ -21,7 +21,7 @@ helpers do
     end
 
     #correct for Aces
-    face_values.select{|cardvalue| cardvalue == "ace"}.count.times do
+    face_values.select{|cardvalue| cardvalue == "A"}.count.times do
       break if total <= BLACKJACK_AMOUNT
       total -= 10
     end
