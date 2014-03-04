@@ -63,7 +63,7 @@ end
     @play_again = true
     @show_hit_or_stay_buttons = false
     session[:player_pot] = session[:player_pot] - session[:player_bet]
-    @loser = "<strong>#{session[:name]} loses.</strong> #{msg}"
+    @loser = "<strong>#{session[:name]} loses. Better luck next time!</strong> #{msg}"
   end
 
   def tie!(msg)
