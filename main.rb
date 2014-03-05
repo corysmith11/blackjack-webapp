@@ -13,7 +13,7 @@ helpers do
 
     total = 0
     face_values.each do |val|
-      if val == "A"
+      if val == "ace"
         total += 11
       else
         total += val.to_i == 0 ? 10 : val.to_i
@@ -21,7 +21,7 @@ helpers do
     end
 
     #correct for Aces
-    face_values.select{|cardvalue| cardvalue == "A"}.count.times do
+    face_values.select{|cardvalue| cardvalue == "ace"}.count.times do
       break if total <= BLACKJACK_AMOUNT
       total -= 10
     end
