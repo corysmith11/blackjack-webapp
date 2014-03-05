@@ -9,7 +9,7 @@ INITIAL_POT_AMT = 2000
 
 helpers do
   def calc_total(value)
-    face_values = value.map{|cardvalue| cardvalue[1]}
+    face_values = value.map{|card_value| card_value[1]}
 
     total = 0
     face_values.each do |val|
@@ -21,7 +21,7 @@ helpers do
     end
 
     #correct for Aces
-    face_values.select{|cardvalue| cardvalue == "ace"}.count.times do
+    face_values.select{|card_value| card_value == "ace"}.count.times do
       break if total <= BLACKJACK_AMOUNT
       total -= 10
     end
@@ -36,15 +36,6 @@ def card_image(card)
   when 'D' then 'diamonds'
   when 'C' then 'clubs'
   when 'S' then 'spades'
-end
-
-value = card[1]
-if ['J', 'Q', 'K', 'A'].include?(value)
-  value = case card[1]
-    when 'J' then 'jack'
-    when 'Q' then 'queen'
-    when 'K' then 'king'
-    when 'A' then 'ace'
   end
 end
 
