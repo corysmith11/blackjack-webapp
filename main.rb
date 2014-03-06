@@ -37,6 +37,15 @@ def card_image(card)
   when 'C' then 'clubs'
   when 'S' then 'spades'
   end
+
+  value = card[1]
+    if ['J', 'Q', 'K', 'A'].include?(value)
+      value = case card[1]
+        when 'J' then 'jack'
+        when 'Q' then 'queen'
+        when 'K' then 'king'
+        when 'A' then 'ace'
+      end
 end
 
 
@@ -62,7 +71,7 @@ end
     @show_hit_or_stay_buttons = false
     @winner ="<strong>It's a tie</strong> #{msg}"
   end
-end
+
 
 before do
   @show_hit_or_stay_buttons = true
@@ -192,4 +201,5 @@ end
 
 get '/game_over' do
   erb :game_over
+end
 end
